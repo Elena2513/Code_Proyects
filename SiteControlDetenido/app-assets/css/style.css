@@ -1,0 +1,101 @@
+.bg-cnu {
+
+	background-color: #1B3588 !important;
+	color:#ffffff;
+}
+
+.text-cnu {
+	color:	#1B3588;
+}
+
+.box-indicador-n1
+{
+	background-image: url('~/img/01-blue.png');  
+    height: 20vw;  
+    width: 100%;
+    background-repeat: no-repeat; /* Do not repeat the image */
+     background-size: 100% 100%; /* Resize the background image to cover the entire container */
+    border: 0px;
+}
+.box-indicador-n1:hover
+{
+	background-image: url('~/img/01-gray.png');  
+    background-repeat: no-repeat; /* Do not repeat the image */
+     background-size: 100% 100%; /* Resize the background image to cover the entire container */
+    border: 0px;
+}
+.box-indicador-n2
+{
+	background-image: url('~/img/02-blue.png');  
+    height: 20vw;  
+    width: 100%;
+    background-repeat: no-repeat; /* Do not repeat the image */
+     background-size: 100% 100%; /* Resize the background image to cover the entire container */
+    border: 0px;
+}
+.box-indicador-n2:hover
+{
+	background-image: url('~/img/02-gray.png');  
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 100% 100%; /* Resize the background image to cover the entire container */
+    border: 0px;
+}
+.box-indicador-n3
+{
+	background-image: url('~/img/03-blue.png');  
+    height: 20vw;  
+    width: 100%;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 100% 100%; /* Resize the background image to cover the entire container */
+    border: 0px;
+}
+.box-indicador-n3:hover
+{
+	background-image: url('~/img/03-gray.png');  
+    background-repeat: no-repeat; /* Do not repeat the image */
+   background-size: 100% 100%; /* Resize the background image to cover the entire container */
+   border: 0px;
+}
+.box-indicador-n4
+{
+	background-image: url('~/img/04-blue.png');  
+   
+    height: 20vw;  
+    width: 100%;
+    background-repeat: no-repeat; /* Do not repeat the image */
+     background-size: 100% 100%; /* Resize the background image to cover the entire container */
+    border: 0px;
+}
+.box-indicador-n4:hover
+{
+	background-image: url('~/img/04-gray.png');  
+    background-repeat: no-repeat; /* Do not repeat the image */
+     background-size: 100% 100%; /* Resize the background image to cover the entire container */
+    border: 0px;
+}
+.box-indicador-body
+{
+	line-height: 50px; //Damos 200px de alto para notar el efecto
+}
+.btn-indicador-default
+{
+	border: 0px solid;
+	background: none;
+	font-size: 35px;
+	font-weight: bold;
+	color: #ffffff;
+	cursor:cell;
+}
+.cnu-form-login{
+    border-radius: 30px; margin-top: 0px;
+}
+@media (max-width: 750px){
+.cnu-title-login
+{
+    display: none;
+}
+.cnu-form-login{
+    border-radius: 30px; margin-top: 0px;
+}
+}
+

@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Consolidado";
+}
+
+<h2>Consolidado</h2>
+<br />
+
+<div class="modal-body">
+
+    <div class="row">
+
+        <div class="col-md-1">
+            <h5>Exportar</h5>
+            <a class="btn btn-success" id="btn-export-consolidado"><i class="icon-file-excel-o"></i> </a>
+        </div>
+
+        <div class="col-md-3">
+            <h5>Fecha Inicio</h5>
+            <div class="form-group">
+                <input type="date" class="form-control" id="consolidado-inicio" required />
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <h5>Fecha Final</h5>
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="date" class="form-control" id="consolidado-final" required />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-info btn-BuscarF"><i class="icon-search4"></i></button>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <div class="table-responsive" style="margin-top:10px;">
+
+                <table class="table table-bordered" id="listPermanencia">
+                    <thead>
+                        <tr>
+                            <th>Departamento</th>
+                            <th>Total</th>
+                            <th>Delitos</th>
+                            <th>Faltas</th>
+                            <tH>Hombres</tH>
+                            <th>Mujeres</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-result-consolidado"></tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/resources/plugins/export/jquery.table2excel.js"></script>
+    <script src="~/resources/libraries/Estadistica.js?v=@DateTime.Now.Second.ToString()"></script>
+    <script type="text/javascript">
+
+        Estadistica.ToList_Consolidado();
+
+        $(".btn-BuscarF").click(function () {
+            Estadistica.ToList_Consolidado();
+        });
+
+        $("#table-result-consolidado").on("click", "tr td .Btn-VerDepartamento", function () {
+            Estadistica.ToListMunicipio_Consolidado($(this).attr("data-index"));
+        });
+
+
+    </script>
+}
+

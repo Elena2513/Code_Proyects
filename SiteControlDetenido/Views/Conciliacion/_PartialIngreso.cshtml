@@ -1,0 +1,149 @@
+﻿@{
+    var delegacion = SiteControlDetenido.Models.Acciones.CatDelegacionC.DelegacionPadre();
+}
+
+
+<div class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" id="modal-ingreso">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <form action="" method="post" id="ingreso-Form">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Detenidos reportados en celdas </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body  pre-scrollable">
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Fecha</h5>
+                            <div class="form-group">
+                                <input id="ingreso-fecha" class="form-control" type="date" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <h5>Delegacion</h5>
+                            <div class="form-group">
+                                <select class="form-control" id="ingreso-delegacion">
+                                    @foreach (var item in delegacion)
+                                    {
+                                        <option value="@item.CodDelegacionPolicial">@item.DelegacionPolicial</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Total Detenidos al Finalizar el turno</h5>
+                            <div class="form-group">
+                                <input id="ingreso-totalDetenido" class="form-control" type="number" readonly />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h5>Recibidos en el Dia</h5>
+                            <div class="form-group">
+                                <input id="ingreso-recibidoDia" class="form-control" type="number" required />
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h5>Ingreso Delito</h5>
+                            <div class="form-group">
+                                <input id="ingreso-delito" class="form-control" type="number" required />
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h5>Ingreso Falta</h5>
+                            <div class="form-group">
+                                <input id="ingreso-falta" class="form-control" type="number"  required/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h5>Ingreso Transito</h5>
+                            <div class="form-group">
+                                <input id="ingreso-transito" class="form-control" type="number"  required/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5>Egreso Orden Libertad</h5>
+                            <div class="form-group">
+                                <input id="ingreso-ordenLibertad" class="form-control" type="number" required />
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <h5>Egreso Traslado SPN</h5>
+                            <div class="form-group">
+                                <input id="ingreso-trasladoSPN" class="form-control" type="number"  required/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <h5>Egreso Traslado otra Delegacion</h5>
+                            <div class="form-group">
+                                <input id="ingreso-trasladoOtraDeleg" class="form-control" type="number" required />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <h5>Hombres Adultos</h5>
+                            <div class="form-group">
+                                <input id="ingreso-hombrAdult" class="form-control" type="number"  required/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h5>Mujeres Adultas</h5>
+                            <div class="form-group">
+                                <input id="ingreso-MujerAdult" class="form-control" type="number" required/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h5>Hombres Adolescentes</h5>
+                            <div class="form-group">
+                                <input id="ingreso-hombrAdolesc" class="form-control" type="number" required/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h5>Mujeres Adolescentes</h5>
+                            <div class="form-group">
+                                <input id="ingreso-MujerAdolesc" class="form-control" type="number" required />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary btn-GuardarConsultaAF">Guardar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

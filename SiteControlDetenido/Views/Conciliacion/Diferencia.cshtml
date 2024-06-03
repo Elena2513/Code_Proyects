@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Diferencia";
+}
+
+<h2>Conciliación</h2>
+
+<div class="row">
+    @*<div class="col-md-3">
+            <h5>Fecha Inicio</h5>
+            <div class="form-group">
+                <input type="date" class="form-control" id="diferencia-inicio" required />
+            </div>
+        </div>*@
+    <div class="col-md-3">
+        <h5>Fecha Final</h5>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="date" class="form-control" id="diferencia-final" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-info btn-BuscarDiferencia"><i class="icon-search4"></i></button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <h5>Exportar</h5>
+        <a class="btn btn-success" id="btn-Export-Diferencia"><i class="icon-file-excel"></i> </a>
+    </div>
+</div>
+<br />
+
+<h3 id="Fechadia"> </h3>
+<div class="row">
+
+    <div class="col-md-12 table-responsive">
+        <table class="table table-bordered mb-0" id="table-RptDiferencia">
+            <thead>
+                <tr>
+                    <th>Delegacion</th>
+                    <th>Estado</th>
+                    <th>Total Detenidos</th>
+                    <th>Recibido Dia</th>
+                    <th>Ingreso Delito</th>
+                    <th>Ingreso Falta</th>
+                    <th>Ingreso Transito</th>
+                    <th>Egreso Libertad</th>
+                    <th>Egreso Traslado SPN</th>
+                    <th>Egreso Traslado a Otra Delegacion</th>
+                </tr>
+            </thead>
+            <tbody id="table-Reporta-diferencia"></tbody>
+        </table>
+
+    </div>
+</div>
+
+<br />
+<h3>Pendiente de Reportar Auxilio Judicial en el dia</h3>
+<div class="row">
+    <div class="col-md-12 table-responsive">
+        <table class="table table-bordered mb-0 ">
+            <thead>
+                <tr>
+                    <th>Delegacion</th>
+                    <th>Estado</th>
+                    <th>Total Detenidos</th>
+                    <th>Recibido Dia</th>
+                    <th>Ingreso Delito</th>
+                    <th>Ingreso Falta</th>
+                    <th>Ingreso Transito</th>
+                    <th>Egreso Libertad</th>
+                    <th>Egreso Traslado SPN</th>
+                    <th>Egreso Traslado a Otra Delegacion</th>
+                </tr>
+            </thead>
+            <tbody id="table-NoReporta-diferencia"></tbody>
+        </table>
+
+    </div>
+</div>
+
+
+
+
+@section scripts
+{
+    <script src="~/resources/plugins/export/jquery.table2excel.js"></script>
+    <script src="~/resources/libraries/Conciliacion.js?v=@DateTime.Now.Second.ToString()"></script>
+    <script type="text/javascript">
+
+        //Mostrar Fecha
+        var Fcha = $("#diferencia-final").val();
+        var textoFcha = 'Reportado en el Dia ' +  Fcha;
+        $("#Fechadia").text(textoFcha);
+
+
+        Conciliacion.ToList_ReportadoDiferencia();
+        Conciliacion.ToList_NoReportadoDiferencia();
+
+        $(".btn-BuscarDiferencia").click(function () {
+            Conciliacion.ToList_ReportadoDiferencia();
+            Conciliacion.ToList_NoReportadoDiferencia();
+
+            //Mostrar Fecha
+            var Fcha = $("#diferencia-final").val();
+            var textoFcha = 'Reportado en el Dia  '  +  Fcha;
+            $("#Fechadia").text(textoFcha);
+        });
+
+        //Exportar a Excel la diferencia
+        $("#btn-Export-Diferencia").click(function () {
+
+              $("#table-RptDiferencia").table2excel ({
+                exclude: ".excludeThisClass",
+                name: "Diferencia",
+                filename: "RptDiferencia_(@DateTime.Now.ToShortTimeString()).xls", // do include extension
+                preserveColors: true // set to true if you want background colors and font colors preserved
+            });
+        });
+
+
+    </script>
+}

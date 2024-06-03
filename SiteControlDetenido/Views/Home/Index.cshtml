@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="callout-arrow-left bs-callout-success alert alert-dismissable" id="message-warning">
+            <h5>Bienvenido!</h5>
+
+            <p>
+                @Session["NombreCompleto"] a Indicadores de Control de Detenidos usted tiene el Rol de @Session["Perfil"]
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+
+            </p>
+        </div>
+    </div>
+</div>
+

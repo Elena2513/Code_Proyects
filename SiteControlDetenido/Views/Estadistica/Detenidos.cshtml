@@ -1,0 +1,529 @@
+﻿
+@{
+    ViewBag.Title = "Detenidos";
+}
+
+<div class="row">
+    <div class="col-md-11">
+        <h1 class="text-center">Indicadores de Control de Detenido </h1>
+        <input id="Perfil" value="@Session["Perfil"]" hidden />
+        <input id="CodEstructura" value="@Session["CodEstructura"]" hidden />
+
+    </div>
+    <div class="col-md-1">
+        <a class="btn btn-info pull-right text-white btn-float" data-toggle="modal" data-target="#modal-Filtro"><i class="icon-filter2"></i> <small>Filtrar</small></a>
+    </div>
+</div>
+
+<br />
+<div class="card-body">
+
+    <div class="row">
+        <div class="col-xl-2 col-lg-6 col-xs-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-left">
+                                <h1><a href="#" id="total-saldo">0</a></h1>
+                                <h4>Saldo</h4>
+                            </div>
+                            <div class="media-right media-middle">
+                                <i class="icon-ei-arrow-left pink  font-large-2 float-xs-right"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-6 col-xs-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-left">
+                                <h1><a href="#" id="total-nacional">0</a></h1>
+                                <h4>Ingresos</h4>
+                            </div>
+                            <div class="media-right media-middle">
+                                <i class="icon-trending_up teal font-large-2 float-xs-right"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-6 col-xs-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-left">
+                                <h1><a href="#" id="total-egresos">0</a></h1>
+                                <h4>Egresos</h4>
+                            </div>
+                            <div class="media-right media-middle">
+                                <i class="icon-pie-graph2 deep-orange font-large-2 float-xs-right"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-6 col-xs-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-left">
+                                <h1><a href="#" id="total-detenido">0</a></h1>
+                                <h5>Detenidos Celda</h5>
+                            </div>
+                            <div class="media-right media-middle">
+                                <i class="icon-head cyan font-large-2 float-xs-right"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-xl-3 col-lg-4 col-xs-6">
+            <div class="card bg-cyan">
+                <div class="card-body">
+                    <div class="center">
+                        <div class="media">
+                            <div class="p-2 text-lg-center media-left media-middle">
+                                <i class="icon-man text-white font-large-2 float-xs-left"></i>
+                            </div>
+                            <div class="p-2 media-body white">
+                                <h1><a href="#" data-index="" id="total-hombrAdult">0</a></h1>
+                                <h3>Hombres Adultos</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-xs-6">
+            <div class="card bg-cyan">
+                <div class="card-body">
+                    <div class="center">
+                        <div class="media">
+                            <div class="p-2 text-lg-center media-left media-middle">
+                                <i class="icon-pie-graph2 text-white font-large-2 float-xs-left"></i>
+                            </div>
+                            <div class="p-2 media-body white">
+                                <h1><a href="#" data-index="" id="total-hombrAdolesc">0</a></h1>
+                                <h4>Hombre Adolescente</h4>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-xs-6">
+            <div class="card bg-cyan">
+                <div class="card-body">
+                    <div class="center">
+                        <div class="media">
+                            <div class="p-2 text-lg-center media-left media-middle">
+                                <i class="icon-woman text-white font-large-2 float-xs-left"></i>
+                            </div>
+                            <div class="p-2 media-body white">
+                                <h1><a href="#" data-index="" id="total-mujeresAdult">0</a></h1>
+                                <h3>Mujeres Adultas</h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-3 col-lg-4 col-xs-6">
+            <div class="card bg-cyan">
+                <div class="card-body">
+                    <div class="center">
+                        <div class="media">
+                            <div class="p-2 text-lg-center media-left media-middle">
+                                <i class="icon-bar-graph text-white font-large-2 float-xs-left"></i>
+                            </div>
+                            <div class="p-2 media-body white">
+                                <h1><a href="#" data-index="" id="total-mujeresAdolesc">0</a></h1>
+                                <h4>Mujeres Adolescente</h4>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-xl-4 col-lg-6 col-xs-12">
+            <div class="card bg-yellow bg-darken-2">
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-left white">
+                                <h1><a href="#" id="total-extranjero">0</a></h1>
+                                <h4>Extranjero</h4>
+                            </div>
+                            <div class="media-right media-middle">
+                                <i class="icon-android-plane text-white font-large-2 float-xs-right"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-6 col-xs-12">
+            <div class="card bg-yellow bg-darken-2">
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-left white">
+                                <h1><a href="#" id="total-adultoMayor">0</a></h1>
+                                <h4>Adulto Mayor</h4>
+                            </div>
+                            <div class="media-right media-middle">
+                                <i class="icon-android-contact text-white font-large-2 float-xs-right"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-6 col-xs-12">
+            <div class="card bg-yellow bg-darken-2">
+                <div class="card-body">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-left white">
+                                <h1><a href="#" id="total-detenidoMes">0</a></h1>
+                                <h5>Detenidos más de 30 días</h5>
+                            </div>
+                            <div class="media-right media-middle">
+                                <i class="icon-android-person-add text-white font-large-2 float-xs-right"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header  text-light">
+                    <h4 class="card-title">Movimiento Detenido</h4>
+
+                </div>
+                <div class="card-body">
+
+                    <div id="chartContainerIngresoEgreso" style="height:400px; width:100%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header  text-light">
+                    <h4 class="card-title">Delegación</h4>
+
+                </div>
+                <div class="card-body">
+                    <div id="chartContainerDelegacion" style="height:400px; width:100%"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header  text-light">
+                    <h4 class="card-title">Tiempo de Permanencia en Celda</h4>
+
+                </div>
+                <div class="card-body">
+                    <div id="chartContainerRangoHoraDia" style="height:400px; width:100%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header  text-light">
+                    <h4 class="card-title">Extranjeros, Adultos Mayores Y Prisión Preventiva</h4>
+
+                </div>
+                <div class="card-body">
+                    <div id="chartContainerExtranjAdulto" style="height:400px; width:100%"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+@section Modals
+{
+    @Html.Partial("~/Views/PartialViews/_Filtro.cshtml")
+
+    @Html.Partial("~/Views/Estadistica/_PartialSaldoDeleg.cshtml")
+    @Html.Partial("~/Views/Estadistica/_PartialSaldoDetalle.cshtml")
+
+    @Html.Partial("~/Views/Estadistica/_PartialDetalleIngresos.cshtml")
+    @Html.Partial("~/Views/Estadistica/_PartialIngresosDeleg.cshtml")
+    @Html.Partial("~/Views/Estadistica/_PartialIngresoDetalle.cshtml")
+
+    @Html.Partial("~/Views/Estadistica/_PartialEgresosMovimiento.cshtml")
+    @Html.Partial("~/Views/Estadistica/_PartialEgresosDeleg.cshtml")
+    @Html.Partial("~/Views/Estadistica/_PartialDetalleEgresos.cshtml")
+
+    @Html.Partial("~/Views/Estadistica/_PartialDelitos.cshtml")
+    @Html.Partial("~/Views/Estadistica/_PartialDelitosDeleg.cshtml")
+    @Html.Partial("~/Views/Estadistica/_PartialDetalleCelda.cshtml")
+
+    @Html.Partial("~/Views/Estadistica/_PartialDelegacion.cshtml")
+    @Html.Partial("~/Views/Estadistica/_PartialDelegacionDetalle.cshtml")
+
+    @Html.Partial("~/Views/Estadistica/_PartialRangoDiasDeleg.cshtml")
+    @Html.Partial("~/Views/Estadistica/_PartialDetalleRangoDia.cshtml")
+
+    @Html.Partial("~/Views/Estadistica/_PartialExtranjeroDeleg.cshtml")
+    @Html.Partial("~/Views/Estadistica/_PartialExtranjeroDetalle.cshtml")
+
+    @Html.Partial("~/Views/Estadistica/_PartialAdultoMayorDeleg.cshtml")
+    @Html.Partial("~/Views/Estadistica/_PartialAdultoMayorDetalle.cshtml")
+
+    @Html.Partial("~/Views/Estadistica/_PartialPrisionDeleg.cshtml")
+    @Html.Partial("~/Views/Estadistica/_PartialPrisionDetalle.cshtml")
+
+}
+
+@section scripts
+    {
+
+    <script src="~/resources/plugins/export/jquery.table2excel.js"></script>
+    <script src="~/resources/plugins/canvasjs/canvasjs.min.js"></script>
+    <script src="~/resources/libraries/Estadistica.js?v=@DateTime.Now.Second.ToString()"></script>
+    <script type="text/javascript">
+
+        $(function () {
+
+            perfil = $("#Perfil").val();
+            let codigo = "";
+
+            if (perfil == "Administrador" || perfil == "MIEMBRO DEL CONSEJO") {
+                let tipo = 0;
+
+                CargarTotales(tipo, codigo);
+                CargarEgresoIngreso(tipo);
+                CargarDpto(tipo, codigo);
+                CargarRangoHoraDia(tipo, codigo);
+                CargarExtranjAdulto(tipo, codigo);
+            }
+            else if (perfil == "JEFE DE MANAGUA") {
+                let tipo = 1;
+
+                CargarTotales(tipo, codigo);
+                CargarEgresoIngreso(tipo);
+                CargarDpto(tipo, codigo);
+                CargarRangoHoraDia(tipo, codigo);
+                CargarExtranjAdulto(tipo, codigo);
+            }
+            else if (perfil == "JEFE DE DELEGACION ") {
+                let tipo = 2;
+
+                CargarTotales(tipo, codigo);
+                CargarEgresoIngreso(tipo);
+                CargarDpto(tipo, codigo);
+                CargarRangoHoraDia(tipo, codigo);
+                CargarExtranjAdulto(tipo, codigo);
+            }
+            else {
+                let tipo = 0;
+
+                CargarTotales(tipo, codigo);
+                CargarEgresoIngreso(tipo);
+                CargarDpto(tipo, codigo);
+                CargarRangoHoraDia(tipo, codigo);
+                CargarExtranjAdulto(tipo, codigo);
+            }
+
+        });
+
+        $(".btn-BuscarFiltro").click(function () {
+
+            perfil = $("#Perfil").val();
+            let codigo = "";
+
+            if (perfil == "Administrador" || perfil == "MIEMBRO DEL CONSEJO") {
+                let tipo = 0;
+
+                CargarTotales(tipo, codigo);
+                CargarEgresoIngreso(tipo);
+                CargarDpto(tipo, codigo);
+                CargarRangoHoraDia(tipo, codigo);
+                CargarExtranjAdulto(tipo, codigo);
+            }
+            else if (perfil == "JEFE DE MANAGUA") {
+                let tipo = 1;
+
+                CargarTotales(tipo, codigo);
+                CargarEgresoIngreso(tipo);
+                CargarDpto(tipo, codigo);
+                CargarRangoHoraDia(tipo, codigo);
+                CargarExtranjAdulto(tipo, codigo);
+            }
+            else if (perfil == "JEFE DE DELEGACION ") {
+                let tipo = 2;
+
+                CargarTotales(tipo, codigo);
+                CargarEgresoIngreso(tipo);
+                CargarDpto(tipo, codigo);
+                CargarRangoHoraDia(tipo, codigo);
+                CargarExtranjAdulto(tipo, codigo);
+            }
+            else {
+                let tipo = 0;
+
+                CargarTotales(tipo, codigo);
+                CargarEgresoIngreso(tipo);
+                CargarDpto(tipo, codigo);
+                CargarRangoHoraDia(tipo, codigo);
+                CargarExtranjAdulto(tipo, codigo);
+            }
+
+        });
+
+
+        //CANVAS PRINCIPAL MOVIMIENTO DETENIDO
+        //reporte de detenido en canvas SALDO
+        $("#detalle-saldo").on("click", "li .btn-ver", function () {
+
+            $("#modal-grafico-SaldoDeleg").modal("hide");
+            $("#modal-detalle-saldo").modal("hide");
+            Cargar_FichaDetenido($(this).attr("data-index"));
+
+        });
+
+        //reporte de detenido en canvas INGRESOS
+        $("#detalle-ingresos").on("click", "li .btn-ver", function () {
+
+            $("#modal-grafico-detalleIngresos").modal("hide");
+            $("#modal-grafico-IngresosDeleg").modal("hide");
+            $("#modal-detalle-ingresos").modal("hide");
+            Cargar_FichaDetenido($(this).attr("data-index"));
+
+        });
+
+        //reporte de detenido en canvas EGRESOS
+        $("#detalle-egresos").on("click", "li .btn-ver", function () {
+
+            $("#modal-grafico-egresosMovimiento").modal("hide");
+            $("#modal-grafico-EgresosDeleg").modal("hide");
+            $("#modal-detalle-Egresos").modal("hide");
+            Cargar_FichaDetenido($(this).attr("data-index"));
+
+        });
+
+        //reporte de detenido en canvas CELDA
+        $("#detalle-celda").on("click", "li .btn-ver", function () {
+
+            $("#modal-grafico-CeldaSaldo").modal("hide");
+            $("#modal-grafico-delitos").modal("hide");
+            $("#modal-grafico-delitosDeleg").modal("hide");
+            $("#modal-detalle-Celda").modal("hide");
+            Cargar_FichaDetenido($(this).attr("data-index"));
+
+        });
+
+
+
+        //CANVAS PRINCIPAL DELEGACION
+        //reporte de detenido
+        $("#detalle-delegacion").on("click", "li .btn-ver", function () {
+
+            $("#modal-grafico-deleg").modal("hide");
+            $("#modal-detalle-delegacion").modal("hide");
+            Cargar_FichaDetenido($(this).attr("data-index"));
+
+        });
+
+
+        //CANVAS PRINCIPAL TIEMPO DE PERMANENCIA EN CELDA
+        //reporte de detenido
+        $("#detalle-rangoDia").on("click", "li .btn-ver", function () {
+
+            $("#modal-grafico-rangoDiaDeleg").modal("hide");
+            $("#modal-detalle-rangoDia").modal("hide");
+            Cargar_FichaDetenido($(this).attr("data-index"));
+
+        });
+
+
+        //CANVAS PRINCIPAL EXTRANJERO, ADULTO MAYORES Y PRISION PREVENTIVA
+        //reporte de detenido de extranjero
+        $("#detalle-Extranjero").on("click", "li .btn-ver", function () {
+
+            $("#modal-grafico-ExtranjeroDeleg").modal("hide");
+            $("#modal-detalle-Extranjero").modal("hide");
+            Cargar_FichaDetenido($(this).attr("data-index"));
+
+        });
+
+        //reporte de detenido de Adulto Mayor
+        $("#detalle-AdultoMayor").on("click", "li .btn-ver", function () {
+
+            $("#modal-grafico-AdultoMayorDeleg").modal("hide");
+            $("#modal-detalle-AdultoMayor").modal("hide");
+            Cargar_FichaDetenido($(this).attr("data-index"));
+        });
+
+        //Reporte de detenidos en Prisión preventiva
+        $("#detalle-prision").on("click", "li .btn-ver", function () {
+
+            $("#modal-grafico-PrisionDeleg").modal("hide");
+            $("#modal-detalle-prision").modal("hide");
+            Cargar_FichaDetenido($(this).attr("data-index"));
+        });
+
+    </script>
+}
+
+
