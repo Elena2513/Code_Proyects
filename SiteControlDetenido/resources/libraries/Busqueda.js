@@ -188,6 +188,9 @@ function Cargar_ReporteDetenido(Idno) {
         html += "<tr>";
         html += "<th>Departamento</th><td colspan='3'>" + response.Depto + "</td>";
         html += "</tr>";
+        html += "<tr>";
+        html += "<th>Delegación</th><td colspan='3'>" + response.Estructura + "</td>";
+        html += "</tr>";
         html += "</table>";
         html += "</div>";
 
