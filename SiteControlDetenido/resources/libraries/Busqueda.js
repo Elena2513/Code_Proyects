@@ -31,6 +31,7 @@
                     html += "<td>" + value.NombreCompleto + "</td>";
                     html += "<td>" + value.Cedula + "</td>";
                     html += "<td>" + json2Date(value.FechaRegistro) + "</td>";
+                    html += "<td>" + value.Estructura + "</td>";
                     html += "<td><a class='btn btn-warning btn-datos text-light' data-index='" + value.Idno + "' >Ver Reporte</a></td>";
                     html += "</tr>";
 

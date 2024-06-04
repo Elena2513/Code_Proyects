@@ -37,11 +37,13 @@ namespace SiteControlDetenido.Models.Acciones
                 {
                     d.FechaRegistro = DateTime.Parse(dr["FechaRegistro"].ToString());
                     d.Foto = DatosDetenidoC.Fotopersona(d.Idno);
+                    d.Estructura = dr["Estructura"].ToString();
                 }
                 catch 
                 {
                     d.FechaRegistro = DateTime.Now;
                     d.Foto = "";
+                    d.Estructura = "Sin Delegación";
                 } 
                
                 listado.Add(d);
